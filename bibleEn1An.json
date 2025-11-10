@@ -1,0 +1,27 @@
+[
+  {
+    "jour": 1,
+    "matin": "https://www.youtube-nocookie.com/embed/3ZM55AytNfI?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white",
+    "soir": "https://www.youtube.com/embed/KMlNxN3BCpQ?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white"
+  },
+  {
+    "jour": 2,
+    "matin": "https://www.youtube.com/embed/70bRAIa88Kc?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white",
+    "soir": "https://www.youtube.com/embed/nSH_vpPAtoI?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white"
+  },
+  {
+    "jour": 3,
+    "matin": "https://www.youtube.com/embed/e6dqczpRFqE?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white",
+    "soir": "https://www.youtube.com/embed/TXAx54K4qhk?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white"
+  },
+  {
+    "jour": 4,
+    "matin": "https://www.youtube.com/embed/DzWLTYKITgQ?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white",
+    "soir": "https://www.youtube.com/embed/4hwn1rQyXJo?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white"
+  },
+  {
+    "jour": 5,
+    "matin": "https://www.youtube.com/embed/ZoyhdBfx_Ek?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white",
+    "soir": "https://www.youtube.com/embed/_TpJrcVtkPo?modestbranding=1&rel=0&iv_load_policy=3&fs=0&color=white"
+  }
+]
