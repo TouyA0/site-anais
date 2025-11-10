@@ -10,7 +10,7 @@ fetch('meditations.json')
         const day = new Date();
         const daySeed = day.getFullYear() * 1000 + day.getMonth() * 31 + day.getDate();
         const index = daySeed % meditations.length;
-    
+        
         document.getElementById('meditation').innerText = meditations[index];
     })
     .catch(err => console.error('Erreur chargement méditations:', err));
@@ -27,10 +27,10 @@ fetch('bibleEn1An.json')
     .then(videos => {
         const jourData = videos.find(v => v.jour === jourPlan);
         if (jourData) {
-            document.getElementById('videoMatin').src = jourData.matin;
-            document.getElementById('videoSoir').src = jourData.soir;
+                document.getElementById('videoMatin').src = jourData.matin;
+                document.getElementById('videoSoir').src = jourData.soir;
         } else {
-            document.getElementById('bibleJour').innerHTML = "Le parcours \"Bible en 1 An\" débutera le 01-01-2026";
+                document.getElementById('bibleJour').innerHTML = "Le parcours \"Bible en 1 An\" débutera le 01-01-2026";
         }
     })
     .catch(err => console.error(err));
@@ -41,7 +41,7 @@ fetch('prieres.json')
     .then(prieres => {
         const daySeed = today.getFullYear() * 1000 + today.getMonth() * 31 + today.getDate();
         const index = daySeed % prieres.length;
-        document.getElementById('priere').innerText = prieres[index];
+        document.querySelector('#priere .texte').innerText = prieres[index];
     })
     .catch(err => console.error('Erreur chargement prières:', err));
 
@@ -70,3 +70,58 @@ window.addEventListener('DOMContentLoaded', () => {
         widget.setAttribute('data-search', searchValue);
     }
 })();
+
+// === Gestion du message personnalisé quand il n'y a pas de messe ===
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new MutationObserver(() => {
+    const widget = document.querySelector("#widgetEglise");
+    if (!widget) return;
+
+    const errorMessage = widget.querySelector(".error b");
+    const customMessageId = "no-messe-message";
+
+    // Si le widget affiche "Pas d'horaire disponible..."
+    if (errorMessage && errorMessage.textContent.includes("Pas d'horaire disponible")) {
+        // Masquer le bloc original
+        widget.style.display = "none";
+
+        // Créer un message personnalisé s’il n’existe pas déjà
+        if (!document.getElementById(customMessageId)) {
+            const message = document.createElement("div");
+            message.id = customMessageId;
+            message.style.textAlign = "center";
+            message.style.padding = "20px";
+            message.style.backgroundColor = "#f9f9f9";
+            message.style.borderRadius = "10px";
+            message.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+            message.innerHTML = `
+                <p style="font-size: 1.1em; color: #444;">
+                    Aucune messe prévue aujourd’hui à Toulouse.
+                </p>
+                `;
+            const container = document.querySelector("#messes .EgliseInfo-container");
+            if (container) container.appendChild(message);
+            }
+        }
+    });
+
+    // Surveille le contenu du widget (car il est injecté dynamiquement)
+    const targetNode = document.querySelector("#widgetEglise");
+    if (targetNode) {
+        observer.observe(targetNode, { childList: true, subtree: true });
+    }
+});
+
+// === Suppression de la popup automatique du widget EgliseInfo ===
+document.addEventListener("DOMContentLoaded", () => {
+    const observerPopup = new MutationObserver(() => {
+        const popup = document.querySelector(".gwt-DialogBox.window-eglise-choice");
+        if (popup) {
+            popup.remove(); // supprime complètement la fenêtre
+            console.log("Popup EgliseInfo supprimée");
+        }
+    });
+
+    // Surveille tout le body car la popup est injectée directement dedans
+    observerPopup.observe(document.body, { childList: true, subtree: true });
+});

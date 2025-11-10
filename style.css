@@ -1,102 +1,147 @@
-@import url(https://db.onlinewebfonts.com/c/f05f148ec6596f0b75375fa566aaf1fe?family=Bely+Display+W00+Regular);
-@import url(https://db.onlinewebfonts.com/c/fe82d4bebb545cd0d8c9683e258e961c?family=Muli);
+@import url('https://db.onlinewebfonts.com/c/f05f148ec6596f0b75375fa566aaf1fe?family=Bely+Display+W00+Regular');
+@import url('https://db.onlinewebfonts.com/c/fe82d4bebb545cd0d8c9683e258e961c?family=Muli');
 
-html, body {
-  margin: 0;
-  padding: 0;
+:root {
+    --fond: #FAF4F0;
+    --texte: #1A1918;
+    --accent: #42629A;
+    --gris: #CCC7C3;
+    --font-titre: "Bely Display W00 Regular", serif;
+    --font-texte: "Muli", sans-serif;
 }
 
-body {
-    background-color: #FAF4F0;
+/* GLOBAL */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fond);
+    color: var(--texte);
+    font-family: var(--font-texte);
+    scroll-behavior: smooth;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+header img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 1400px) {
+    header img {
+        max-height: 400px;
+    }
+}
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 h2 {
-    font-family: "Bely Display W00 Regular", sans-serif;
-    font-weight: 400;
-    font-size: 35px;
-    color: #1A1918;
+    font-family: var(--font-titre);
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
+    color: var(--texte);
     text-align: center;
+    margin-top: 40px;
 }
 
 h3 {
-    font-family: "Muli";
-    font-size: 20px;
+    font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+    margin-top: 20px;
 }
 
-hr {
-  border: none;
-  height: 1px;
-  background-color: #CCC7C3;
-  margin: 30px 0;
+.texte {
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    line-height: 1.7;
 }
 
-#image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-
+/* SECTIONS */
 #date {
-    font-family: "Muli";
-    font-size: 14px;
-    color: #42629A;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 10px;
 }
 
 #meditation {
     text-transform: uppercase;
     text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-#bibleJour {
-    text-align: center;
-}
-
-#evangile {
-    text-align: center;
-}
-
-#content {
-    margin: 40px auto;
-    padding: 0 60px;
+.video-grid {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-#meditation, #priere, #chapelet {
-    padding: 0 100px;
+.video-grid iframe {
+    flex: 1 1 45%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
 }
 
 #chapelet img {
     display: block;
-    margin: 0 auto;
-}
-
-.texte {
-    font-family: "Muli";
-    font-size: 16px;
-    color: #1A1918;
-}
-
-.container-img-credo {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.container-img-credo img {
-    max-width: 1500px;
+    max-width: 100%;
     height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
-.container-img-credo .texte {
-    flex: 1;
+.prieres article {
+    margin-bottom: 20px;
 }
 
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--gris);
+    margin: 40px 0;
+}
 
-/* Animation de base */
+/* Widget messes */
+.searchCelebrationTimeTabBar,
+.searchCelebrationTimeMessage,
+.cellTreeShowMoreButton,
+.searchCelebrationTimeAddTo .loadMore {
+    display: none !important;
+}
+
+.searchCelebrationTimeDisplayPanel {
+    font-family: var(--font-texte);
+    font-size: 0.9rem;
+    color: var(--texte);
+}
+
+/* Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -108,28 +153,17 @@ hr {
     transform: translateY(0);
 }
 
-img.fade-in {
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    main {
+        padding: 0 10px;
+    }
 
-/* Onglets "Dimanches et fêtes", "Messes de semaine", "Autres célébrations", "Toutes" */
-.searchCelebrationTimeTabBar {
-    display: none !important;
-}
+    .video-grid {
+        flex-direction: column;
+    }
 
-/* Phrase type "Il y a 13 horaires de célébration pour votre recherche ..." */
-.searchCelebrationTimeMessage {
-    display: none !important;
-}
-
-/* Bouton "Afficher plus d’horaires" */
-.cellTreeShowMoreButton,
-.searchCelebrationTimeAddTo .loadMore {
-    display: none !important;
-}
-
-.searchCelebrationTimeDisplayPanel {
-    font-family: "Muli";
-    font-size: 14px;
-    color: #1A1918;
+    .video-grid iframe {
+        flex: 1 1 100%;
+    }
 }

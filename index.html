@@ -8,89 +8,108 @@ git push
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pour Anaïs</title>
         <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-        <img id="image" src="https://francais.magnificat.net/wp-content/uploads/2022/04/Christ-at-the-Sea-of-Galilee-Circle-of-Jacopo-Tintoretto.jpg" alt="Christ au bord de la mer de Galilée">
-        
-        <div id="content" class="fade-in">
-            <div id="date"></div>
+        <header>
+            <img id="image" src="https://francais.magnificat.net/wp-content/uploads/2022/04/Christ-at-the-Sea-of-Galilee-Circle-of-Jacopo-Tintoretto.jpg" alt="Christ au bord de la mer de Galilée">
+        </header>
 
-            <div id="meditation" class="texte"></div>
+        <main id="content" class="fade-in">
+            <section id="intro">
+                <div id="date"></div>
+                <div id="meditation" class="texte"></div>
+            </section>
 
-            <div id="bibleJour">
+            <section id="bibleJour">
                 <h2>Bible en 1 an - <span id="numeroJour"></span>/365</h2>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" id="videoMatin" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" id="videoSoir" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-            
-            <div id="evangile">
+                <div class="video-grid">
+                    <iframe id="videoMatin" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                    <iframe id="videoSoir" frameborder="0" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </section>
+
+            <section id="evangile">
                 <h2>L'Évangile du jour</h2>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=eKVm8SQsWPuQ-Gdh&amp;list=PLCFbs8_i_-pybC0fxFCDmaiPiyE7Hecc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/videoseries?si=eKVm8SQsWPuQ-Gdh&amp;list=PLCFbs8_i_-pybC0fxFCDmaiPiyE7Hecc0" title="Évangile du jour" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+
             <hr>
 
-            <h2>Prière du jour</h2>
-            <div id="priere" class="texte"></div>
-            
+            <section id="priere">
+                <h2>Prière du jour</h2>
+                <div class="texte"></div>
+            </section>
+
             <hr>
 
-            <div id="chapelet">
+            <section id="chapelet">
                 <h2>Chapelet</h2>
-                <img src="img/img_chapelet.webp" alt="Explication chapelet">
-                <h3>Le symbole des apôtres ou "Je crois en Dieu" (Credo)</h3>
-                <p class="texte">
-                    Je crois en Dieu, le Père tout-puissant, créateur du ciel et de la terre ; 
-                    et en Jésus-Christ, son Fils unique, notre Seigneur, qui a été conçu du 
-                    Saint-Esprit, est né de la Vierge Marie, a souffert sous Ponce Pilate, a 
-                    été crucifié, est mort et a été enseveli, est descendu aux enfers, le 
-                    troisième jour est ressuscité des morts, est monté aux cieux, est assis à 
-                    la droite de Dieu le Père tout-puissant, d’où il viendra juger les vivants 
-                    et les morts.<br>
-                    Je crois en l’Esprit-Saint, à la sainte Église catholique, à la 
-                    communion des saints, à la rémission des péchés, à la résurrection 
-                    de la chair, à la vie éternelle.<br>
-                    Amen.
-                </p>
-                <h3>La prière du Notre Père (Pater)</h3>
-                <p class="texte">
-                    Notre Père qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, 
-                    que ta volonté soit faite sur la terre comme au Ciel. Donne-nous aujourd'hui 
-                    notre pain de ce jour. Pardonne-nous nos offenses, comme nous pardonnons aussi 
-                    à ceux qui nous ont offensés. Et ne nous laisse pas entrer en tentation, mais 
-                    délivre-nous du mal. Amen.
-                </p>
-                <h3>La prière du Je vous salue Marie (Ave)</h3>
-                <p class="texte">
-                    Je vous salue Marie, pleine de grâces, le Seigneur est avec vous, vous êtes 
-                    bénie entre toutes les femmes, et Jésus le fruit de vos entrailles est béni. 
-                    Sainte Marie, Mère de Dieu, priez pour nous pauvres pécheurs, maintenant et 
-                    à l'heure de notre mort. Amen.
-                </p>
-                <h3>La prière du Gloire au Père (Gloria Patri)</h3>
-                <p class="texte">
-                    Gloire au Père et au Fils et au Saint-Esprit, comme Il était au commencement, 
-                    maintenant et toujours et pour les siècles des siècles. Amen
-                </p>
-            </div>
-        </div>
-            
-        <hr>
+                <img src="img/img_chapelet.webp" alt="Explication du chapelet">
+                <div class="prieres">
+                    <article>
+                        <h3>Le symbole des apôtres ou "Je crois en Dieu" (Credo)</h3>
+                        <p class="texte">
+                                Je crois en Dieu, le Père tout-puissant, créateur du ciel et de la terre ; 
+                                et en Jésus-Christ, son Fils unique, notre Seigneur, qui a été conçu du 
+                                Saint-Esprit, est né de la Vierge Marie, a souffert sous Ponce Pilate, a 
+                                été crucifié, est mort et a été enseveli, est descendu aux enfers, le 
+                                troisième jour est ressuscité des morts, est monté aux cieux, est assis à 
+                                la droite de Dieu le Père tout-puissant, d’où il viendra juger les vivants 
+                                et les morts.<br>
+                                Je crois en l’Esprit-Saint, à la sainte Église catholique, à la 
+                                communion des saints, à la rémission des péchés, à la résurrection 
+                                de la chair, à la vie éternelle.<br>
+                                Amen.
+                        </p>
+                    </article>
 
-        <h2>Messes aujourd'hui</h2>
-        
-        <div class="EgliseInfo-container">
-            <div id="widgetEglise"
-                data-egliseinfo="horaires"
-                data-display="TREE"
-                data-open-in-egliseinfo="false">
-            </div>
+                    <article>
+                        <h3>Notre Père (Pater)</h3>
+                        <p class="texte">
+                                Notre Père qui es aux cieux, que ton nom soit sanctifié, que ton règne vienne, 
+                                que ta volonté soit faite sur la terre comme au Ciel. Donne-nous aujourd'hui 
+                                notre pain de ce jour. Pardonne-nous nos offenses, comme nous pardonnons aussi 
+                                à ceux qui nous ont offensés. Et ne nous laisse pas entrer en tentation, mais 
+                                délivre-nous du mal. Amen.
+                        </p>
+                    </article>
 
-            <script type="text/javascript" language="javascript" src="https://messes.info//Widget/Widget.nocache.js"></script>
-        </div>
+                    <article>
+                        <h3>Je vous salue Marie (Ave)</h3>
+                        <p class="texte">
+                                Je vous salue Marie, pleine de grâces, le Seigneur est avec vous, vous êtes 
+                                bénie entre toutes les femmes, et Jésus le fruit de vos entrailles est béni. 
+                                Sainte Marie, Mère de Dieu, priez pour nous pauvres pécheurs, maintenant et 
+                                à l'heure de notre mort. Amen.
+                        </p>
+                    </article>
 
+                    <article>
+                        <h3>Gloire au Père (Gloria Patri)</h3>
+                        <p class="texte">
+                                Gloire au Père et au Fils et au Saint-Esprit, comme Il était au commencement, 
+                                maintenant et toujours et pour les siècles des siècles. Amen
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="messes">
+                <h2>Messes aujourd’hui</h2>
+                <div class="EgliseInfo-container">
+                    <div id="widgetEglise" data-egliseinfo="horaires" data-display="TREE" data-open-in-egliseinfo="false"></div>
+                    <script src="https://messes.info/Widget/Widget.nocache.js"></script>
+                </div>
+            </section>
+        </main>
 
         <script src="script.js"></script>
     </body>
