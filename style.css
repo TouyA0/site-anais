@@ -127,3 +127,9 @@ img.fade-in {
 .searchCelebrationTimeAddTo .loadMore {
     display: none !important;
 }
+
+.searchCelebrationTimeDisplayPanel {
+    font-family: "Muli";
+    font-size: 14px;
+    color: #1A1918;
+}
