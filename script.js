@@ -52,3 +52,21 @@ window.addEventListener('DOMContentLoaded', () => {
         el.classList.add('active');
     });
 });
+
+// 🔔 Widget Messes du jour (EgliseInfo)
+(function() {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const formattedDate = `${day}-${month}-${year}`; // format DD-MM-YYYY
+
+    // Exemple : ".fr 31 toulouse toutecelebration 11-11-2025"
+    const searchValue = `.fr 31 toulouse toutecelebration ${formattedDate}`;
+
+    // Met à jour dynamiquement l’attribut data-search
+    const widget = document.getElementById('widgetEglise');
+    if (widget) {
+        widget.setAttribute('data-search', searchValue);
+    }
+})();

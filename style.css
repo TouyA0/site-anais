@@ -82,34 +82,48 @@ hr {
 
 .container-img-credo {
     display: flex;
-    align-items: flex-start; /* aligne le haut de l'image et du texte */
-    gap: 20px; /* espace entre l'image et le texte */
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .container-img-credo img {
-    max-width: 1500px; /* largeur max de l'image */
-    height: auto;      /* garde les proportions */
+    max-width: 1500px;
+    height: auto;
 }
 
 .container-img-credo .texte {
-    flex: 1; /* prend le reste de l'espace */
+    flex: 1;
 }
 
 
 /* Animation de base */
 .fade-in {
-    opacity: 0;           /* invisible au départ */
-    transform: translateY(20px); /* léger décalage vers le bas */
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* Classe active pour déclencher l'animation */
 .fade-in.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Appliquer à toutes les images pour un effet similaire */
 img.fade-in {
     transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Onglets "Dimanches et fêtes", "Messes de semaine", "Autres célébrations", "Toutes" */
+.searchCelebrationTimeTabBar {
+    display: none !important;
+}
+
+/* Phrase type "Il y a 13 horaires de célébration pour votre recherche ..." */
+.searchCelebrationTimeMessage {
+    display: none !important;
+}
+
+/* Bouton "Afficher plus d’horaires" */
+.cellTreeShowMoreButton,
+.searchCelebrationTimeAddTo .loadMore {
+    display: none !important;
 }
